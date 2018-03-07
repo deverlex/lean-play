@@ -2,23 +2,14 @@ package services;
 
 import models.Student;
 
+import javax.inject.Singleton;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+@Singleton
 public class StudentStore {
-
-    private static StudentStore studentStore;
-
-    private StudentStore() {}
-
-    public static StudentStore getInstance() {
-        if (studentStore != null)
-            return studentStore;
-        studentStore = new StudentStore();
-        return studentStore;
-    }
 
     private Map<Integer, Student> students = new HashMap<>();
 

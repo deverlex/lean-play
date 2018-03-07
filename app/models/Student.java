@@ -1,10 +1,22 @@
 package models;
 
-public class Student {
+import java.util.*;
+import javax.persistence.*;
 
+import com.avaje.ebean.Model;
+import com.avaje.ebean.annotation.JsonIgnore;
+import play.data.format.*;
+import play.data.validation.*;
+
+@Entity(name = "student")
+public class Student extends Model {
+
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
     private int age;
+    @JsonIgnore
     private int id;
 
     public String getFirstName() {
@@ -38,4 +50,6 @@ public class Student {
     public void setId(int id) {
         this.id = id;
     }
+
+    public static Finder<Integer, Student> find = new Finder<Integer,Student>(Student.class);
 }

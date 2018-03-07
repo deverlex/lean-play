@@ -4,7 +4,7 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * object to insert into the body of the page.
  *@
-@(title: String)(content: Html)
+@(title: String, message: String)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +18,8 @@
     <body>
         @* And here's where we render the `Html` object containing
          * the page content. *@
-        @content
+        <div id="content" class="wrapper doc">
+            @message
+        </div>
     </body>
 </html>

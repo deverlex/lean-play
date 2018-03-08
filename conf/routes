@@ -15,3 +15,6 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 POST    /                           controllers.StudentController.create()
 
 GET     /student/fetch              controllers.StudentController.fetchAll()
+
+
+POST    /booker                     controllers.BookerController.registerBooker

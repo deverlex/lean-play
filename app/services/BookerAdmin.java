@@ -6,14 +6,16 @@ import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.Booker;
 import models.User;
-import play.libs.Json;
 import utils.Util;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.Date;
 
 @Singleton
 public class BookerAdmin {
+
+    private HelloService helloService;
 
     public JsonNode registerBooker(JsonNode json) {
         String firstName = json.get("firstName").asText();
@@ -40,8 +42,12 @@ public class BookerAdmin {
         return jsonNodes;
     }
 
-    public float calculateAllTopup() {
+    @Inject
+    public void setHelloAdmin(HelloService helloService) {
+        this.helloService = helloService;
+    }
 
-        return 1f;
+    public String getHello() {
+        return helloService.getHello();
     }
 }

@@ -18,3 +18,7 @@ GET     /student/fetch              controllers.StudentController.fetchAll()
 
 
 POST    /booker                     controllers.BookerController.registerBooker
+
+GET     /booker/hello               controllers.BookerController.helloBooker
+
+GET     /booker/hello/multi/:name     controllers.BookerController.helloMulti(lang ?= "a", name: String)

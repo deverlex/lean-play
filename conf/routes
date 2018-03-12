@@ -16,11 +16,16 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # For User
 POST    /user                         controllers.TripiUserController.createUser
 
+DELETE  /user/:id                     controllers.TripiUserController.deleteUser(id: Integer)
+
 # For Booker
 GET     /admin/booker                 controllers.TripiPortalController.getListBooker
 
 POST    /admin/booker                 controllers.TripiPortalController.createBooker
 
 DELETE  /admin/booker/:id             controllers.TripiPortalController.deleteBooker(id: Integer)
+
+# For Booking
+POST    /booking                      controllers.TripiBookingController.bookingTicket
 
 

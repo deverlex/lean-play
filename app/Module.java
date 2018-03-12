@@ -3,6 +3,8 @@ import java.time.Clock;
 
 import com.google.inject.name.Names;
 import services.*;
+import services.impl.TripiBookingFlightImpl;
+import services.impl.TripiBookingHotelImpl;
 
 /**
  * This class is a Guice module that tells Guice how to bind several
@@ -25,6 +27,16 @@ public class Module extends AbstractModule {
         bind(ApplicationTimer.class).asEagerSingleton();
         // Set AtomicCounter as the implementation for Counter.
         bind(Counter.class).to(AtomicCounter.class);
+
+        bind(TripiBooking.class)
+                .annotatedWith(Names.named("tripiBookingFlight"))
+                .to(TripiBookingFlightImpl.class)
+                .asEagerSingleton();
+
+        bind(TripiBooking.class)
+                .annotatedWith(Names.named("tripiBookingHotel"))
+                .to(TripiBookingHotelImpl.class)
+                .asEagerSingleton();
     }
 
 }

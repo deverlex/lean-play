@@ -11,13 +11,6 @@ create table booker (
   constraint pk_booker primary key (id)
 );
 
-create table student (
-  first_name                    varchar(255),
-  last_name                     varchar(255),
-  age                           integer,
-  id                            integer
-);
-
 create table user (
   id                            integer auto_increment not null,
   first_name                    varchar(255),
@@ -31,8 +24,6 @@ create table user (
 # --- !Downs
 
 drop table if exists booker;
-
-drop table if exists student;
 
 drop table if exists user;
 

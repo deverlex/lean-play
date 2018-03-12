@@ -25,14 +25,6 @@ public class Module extends AbstractModule {
         bind(ApplicationTimer.class).asEagerSingleton();
         // Set AtomicCounter as the implementation for Counter.
         bind(Counter.class).to(AtomicCounter.class);
-
-        bind(Hello.class)
-                .annotatedWith(Names.named("vi"))
-                .to(HelloVietnamese.class);
-
-        bind(Hello.class)
-                .annotatedWith(Names.named("en"))
-                .to(HelloEnglish.class);
     }
 
 }

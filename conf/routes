@@ -32,4 +32,4 @@ POST    /booking                      controllers.TripiBookingController.booking
 # Async Ticket
 GET     /ticket                       controllers.TripiTicketController.findCheapTicket
 
-
+GET     /ticket/combo                 controllers.TripiTicketController.findComboFlightHotel

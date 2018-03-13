@@ -9,4 +9,8 @@ import services.impl.TripiTicketServiceImpl;
 public interface TripiTicketService {
 
     Single<ObjectNode> findCheapTicket();
+
+    Single<ObjectNode> findTicketHotel();
+
+    Single<ObjectNode> findTicketFlight();
 }

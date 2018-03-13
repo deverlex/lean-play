@@ -3,7 +3,6 @@ package services.impl;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
-import io.reactivex.SingleOnSubscribe;
 import models.Ticket;
 import models.TicketFlight;
 import models.TicketHotel;
@@ -40,6 +39,30 @@ public class TripiTicketServiceImpl implements TripiTicketService {
             objectNode.putPOJO("polling", true);
             objectNode.putPOJO("page", 1);
 
+            emitter.onSuccess(objectNode);
+        });
+    }
+
+    @Override
+    public Single<ObjectNode> findTicketHotel() {
+        return Single.create((SingleEmitter<ObjectNode> emitter) -> {
+            ObjectNode objectNode = Json.newObject();
+
+            TicketHotel ticketHotel = TicketHotel.db().find(TicketHotel.class)
+                    .where().orderBy("price").findList().get(0);
+            objectNode.putPOJO("hotel", ticketHotel);
+            emitter.onSuccess(objectNode);
+        });
+    }
+
+    @Override
+    public Single<ObjectNode> findTicketFlight() {
+        return Single.create((SingleEmitter<ObjectNode> emitter) -> {
+            ObjectNode objectNode = Json.newObject();
+
+            TicketFlight ticketFlight = TicketFlight.db().find(TicketFlight.class)
+                    .where().orderBy("price").findList().get(0);
+            objectNode.putPOJO("flight", ticketFlight);
             emitter.onSuccess(objectNode);
         });
     }

@@ -29,3 +29,7 @@ DELETE  /admin/booker/:id             controllers.TripiPortalController.deleteBo
 POST    /booking                      controllers.TripiBookingController.bookingTicket
 
 
+# Async Ticket
+GET     /ticket                       controllers.TripiTicketController.findCheapTicket
+
+

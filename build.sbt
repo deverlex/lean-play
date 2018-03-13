@@ -10,6 +10,7 @@ libraryDependencies += javaJdbc
 libraryDependencies += cache
 libraryDependencies += javaWs
 libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.41"
+libraryDependencies += "io.reactivex.rxjava2" % "rxjava" % "2.1.10"
 
 routesGenerator := InjectedRoutesGenerator
 

@@ -5,6 +5,7 @@ import com.google.inject.name.Names;
 import services.*;
 import services.impl.TripiBookingFlightImpl;
 import services.impl.TripiBookingHotelImpl;
+import services.impl.TripiTicketServiceImpl;
 
 /**
  * This class is a Guice module that tells Guice how to bind several

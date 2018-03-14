@@ -1,17 +1,21 @@
-name := """play-java"""
+name := """play-java-starter-example"""
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava,PlayEbean)
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.11.11"
+scalaVersion := "2.12.4"
 
-libraryDependencies += javaJdbc
-libraryDependencies += cache
-libraryDependencies += javaWs
-libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.41"
-libraryDependencies += "io.reactivex.rxjava2" % "rxjava" % "2.1.10"
+crossScalaVersions := Seq("2.11.12", "2.12.4")
 
-routesGenerator := InjectedRoutesGenerator
+libraryDependencies += guice
 
-playEbeanModels in Compile := Seq("models.*")
+// Test Database
+libraryDependencies += "com.h2database" % "h2" % "1.4.196"
+
+// Testing libraries for dealing with CompletionStage...
+libraryDependencies += "org.assertj" % "assertj-core" % "3.6.2" % Test
+libraryDependencies += "org.awaitility" % "awaitility" % "2.0.0" % Test
+
+// Make verbose tests
+testOptions in Test := Seq(Tests.Argument(TestFrameworks.JUnit, "-a", "-v"))

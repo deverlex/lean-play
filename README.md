@@ -1,6 +1,6 @@
 [<img src="https://img.shields.io/travis/playframework/play-java-starter-example.svg"/>](https://travis-ci.org/playframework/play-java-starter-example)
 
-# Play Java Starter
+# play-java-starter-example
 
 This is a starter application that shows how Play works.  Please see the documentation at https://www.playframework.com/documentation/latest/Home for more details.
 
@@ -48,11 +48,6 @@ There are several demonstration files available in this template.
 
 ## Filters
 
-- Filters.java:
-
-  Creates the list of HTTP filters used by your application.
-
 - ExampleFilter.java
 
   A simple filter that adds a header to every response.
-# lean-play
